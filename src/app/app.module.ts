@@ -1,14 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { NgModule, Component } from '@angular/core';
+import { RouterModule, Route } from '@angular/router'
 import { AppComponent } from './app.component';
+import { from } from 'rxjs';
+// import { Route } from '@angular/compiler/src/core';
+import { MemberComponent } from './member/member.component';
+import { CreatememberComponent } from './createmember/createmember.component';
 
+const appRoutes: Route[] = [
+  { path: 'member', component: MemberComponent },
+  { path: 'CreateMember', component: CreatememberComponent }
+]
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MemberComponent,
+    CreatememberComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, RouterModule.forRoot(appRoutes, { useHash :true })
   ],
   providers: [],
   bootstrap: [AppComponent]
