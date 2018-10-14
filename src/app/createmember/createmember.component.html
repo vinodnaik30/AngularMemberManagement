@@ -1,3 +1,22 @@
-<p>
-  createmember works!
-</p>
+<form [formGroup]="createMemberForm" (ngSubmit)="onSubmit()">
+    <div>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <label for="name">Name</label>
+    <input formControlName="name"></li>
+    <li class="list-group-item">
+        <label for="email">Email</label>
+    <input formControlName="email"></li>
+    <control-messages [control]="createMemberForm.controls.email"></control-messages>
+    <li class="list-group-item">
+        <label for="type">Type</label>
+    <select formControlName="type">
+      <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+    </select></li>
+    <li class="list-group-item">
+        <button type="reset" class="btn btn-default" value="Reset" (click)="reset()">Reset</button>   
+        <button type="submit" class="btn btn-success" value="Submit">Submit</button>
+    </li>   
+        </ul>
+      </div>   
+    </form>
