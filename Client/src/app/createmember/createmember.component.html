@@ -4,6 +4,7 @@
           <li class="list-group-item">
             <label for="name">Name</label>
     <input formControlName="name"></li>
+    <control-messages [control]="createMemberForm.controls.name"></control-messages>
     <li class="list-group-item">
         <label for="email">Email</label>
     <input formControlName="email"></li>
@@ -15,7 +16,7 @@
     </select></li>
     <li class="list-group-item">
         <button type="reset" class="btn btn-default" value="Reset" (click)="reset()">Reset</button>   
-        <button type="submit" class="btn btn-success" value="Submit">Submit</button>
+        <button type="submit" class="btn btn-success" value="Submit" [disabled]="!createMemberForm.valid">Submit</button>
     </li>   
         </ul>
       </div>   
