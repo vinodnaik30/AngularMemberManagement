@@ -8,6 +8,9 @@ import { from, fromEventPattern } from 'rxjs';
 import { MemberComponent } from './member/member.component';
 import { CreatememberComponent } from './createmember/createmember.component';
 import { ValidatorComponent } from './validator/validator.component';
+import {AgGridModule} from 'ag-grid-angular';
+import { MemberService } from './member/member.sevice';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Route[] = [
   { path: 'member', component: MemberComponent },
@@ -21,9 +24,9 @@ const appRoutes: Route[] = [
     ValidatorComponent
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(appRoutes, { useHash :true }), ReactiveFormsModule
+    AgGridModule.withComponents(null), BrowserModule, RouterModule.forRoot(appRoutes, { useHash :true }), ReactiveFormsModule, HttpClientModule
   ],
-  providers: [],
+  providers: [MemberService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
